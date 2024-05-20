@@ -1,0 +1,104 @@
+.footer {
+  padding: 40px 30px;
+  background-color: #e2a226;
+}
+.footer .grab {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25px;
+}
+.footer .grab img {
+  width: 200px;
+}
+.footer .grab .submit .feild {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.footer .grab .submit .feild input {
+  padding: 10px 15px;
+  border: 1px solid #fff086;
+  width: 250px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 17px;
+}
+.footer .grab .submit .feild input::placeholder {
+  color: #fff;
+}
+.footer .grab .submit .feild span {
+  background: #000;
+  color: #fff;
+  padding: 10px 30px;
+  border-left: 1px solid #fff086;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+}
+.footer .grab .submit p {
+  color: #777;
+  max-width: 300px;
+}
+.footer .plateforms {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 30px;
+}
+.footer .plateforms .links ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer .plateforms .links ul li {
+  list-style: none;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+}
+.footer .plateforms .links p {
+  margin-top: 30px;
+  color: #022;
+}
+@media (max-width: 980px) {
+  .footer .grab {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+}
+@media (max-width: 600px) {
+  .footer .grab .submit .feild {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer .grab .submit .feild span {
+    border-radius: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .footer .plateforms {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer .plateforms .links p {
+    text-align: center;
+  }
+}

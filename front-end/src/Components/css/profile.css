@@ -1,0 +1,88 @@
+.profile {
+  min-height: calc(100vh - 98px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f8fc;
+}
+.profile .profile-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 600px;
+}
+.profile .profile-content .image {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.profile .profile-content .image img {
+  width: 100px;
+  cursor: pointer;
+}
+.profile .profile-content h1 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+/* .profile .profile-content .name {
+  display: flex;
+  gap: 20px;
+} */
+/* .profile .profile-content .name .input-feild {
+  flex-grow: 1;
+} */
+.profile .profile-content .input-feild {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.profile .profile-content .input-feild input {
+  padding: 10px;
+  border: 1px solid #eee;
+  background-color: #f3f4f6;
+}
+.profile .profile-content .input-feild input:focus {
+  outline: 1px solid #6d91de;
+}
+.profile .profile-content .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.profile .profile-content .buttons button {
+  padding: 7px 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  background-color: #2563eb;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+.profile .profile-content .buttons .logout {
+  background-color: #dc3545;
+}
+.profile .add-product {
+  position: absolute;
+  bottom: 60px;
+  right: 122px;
+  background: #04AA6D;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  line-height: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+.profile .add-product a {
+  text-decoration: none;
+  color: #fff;
+}

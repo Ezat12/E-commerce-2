@@ -1,0 +1,99 @@
+.signup-login {
+  min-height: calc(100vh - 99px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f8fc;
+}
+.signup-login .container-feild {
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 600px;
+}
+.signup-login .container-feild h1 {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.signup-login .container-feild .name {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+}
+.signup-login .container-feild .name .input-feild {
+  flex-grow: 1;
+}
+.signup-login .container-feild .input-img label {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.signup-login .container-feild .input-img label img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.signup-login .container-feild .input-feild {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.signup-login .container-feild .input-feild label {
+  color: #444;
+  font-weight: 600;
+}
+.signup-login .container-feild .input-feild input {
+  padding: 10px;
+  border: 1px solid #eee;
+}
+.signup-login .container-feild .input-feild input:focus {
+  outline: 1px solid #9999;
+}
+.signup-login .container-feild .check-login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.signup-login .container-feild .check-login p {
+  color: #777;
+  font-weight: 600;
+}
+.signup-login .container-feild .check-login span {
+  color: #ff4141;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-login {
+  background-color: #ff4141;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.required {
+  border :1px solid #ff4141 !important;
+}
+
+@media(max-width:650px) {
+  .signup-login .container-feild {
+    width: auto;
+  }
+  .signup-login .container-feild .name {
+    flex-direction: column;
+  }
+  .signup-login .container-feild .name .input-feild  {
+    width: 100%;
+  }
+}
