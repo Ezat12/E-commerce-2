@@ -19,9 +19,14 @@ require("dotenv").config();
 
 url = process.env.URI;
 
-mongoose.connect(url).then(() => {
-  console.log("Data is Ready");
-});
+mongoose
+  .connect(url)
+  .then(() => {
+    console.log("Data is Ready");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 app.use(cors());
 app.use(compression());
