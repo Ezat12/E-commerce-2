@@ -18,6 +18,7 @@ function SignupOrLogin() {
   const [accept, setAccept] = useState(false);
 
   const user = useSelector((state) => state.user);
+
   console.log(user);
   const dispatch = useDispatch();
   const navigator = useNavigate();
@@ -58,7 +59,7 @@ function SignupOrLogin() {
               });
               navigator("/");
               dispatch(loginUser(data.data.user));
-            localStorage.setItem("auth-token", data.data.token);
+              localStorage.setItem("auth-token", data.data.token);
             }
           })
           .catch((error) => {

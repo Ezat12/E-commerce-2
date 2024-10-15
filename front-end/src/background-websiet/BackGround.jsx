@@ -9,9 +9,6 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 
 function BackGround() {
-
-  
-
   return (
     <div className="background">
       <div className="left">
