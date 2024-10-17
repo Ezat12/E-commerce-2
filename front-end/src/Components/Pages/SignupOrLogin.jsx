@@ -7,6 +7,7 @@ import { loginUser } from "../rtk/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { addProduct } from "../rtk/slices/productsSlice";
+import { PropagateLoader } from "react-spinners";
 
 function SignupOrLogin() {
   const [check, setCheck] = useState("Sign Up");
@@ -16,17 +17,16 @@ function SignupOrLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accept, setAccept] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const user = useSelector((state) => state.user);
 
-  console.log(user);
   const dispatch = useDispatch();
   const navigator = useNavigate();
 
   const changeImages = async (e) => {
     // const data = await ImageToBase64(e.target.files[0]);
     setImage(e.target.files[0]);
-    console.log(e.target.files[0]);
   };
 
   const signUp = async () => {
@@ -46,6 +46,7 @@ function SignupOrLogin() {
         formData.append("password", password);
         formData.append("image", image);
 
+        setLoading(true);
         axios
           .post("http://localhost:4000/signup", formData)
           .then((res) => {
@@ -71,6 +72,7 @@ function SignupOrLogin() {
               },
             });
           });
+        setLoading(false);
       } else {
         toast("please include an '@' in the email address", {
           style: {
@@ -86,6 +88,7 @@ function SignupOrLogin() {
     setAccept(true);
 
     if (email !== "" && password !== "") {
+      setLoading(true);
       await fetch("http://localhost:4000/login", {
         method: "POST",
         headers: {
@@ -106,6 +109,7 @@ function SignupOrLogin() {
                 color: "#fff",
               },
             });
+            setLoading(false);
           } else {
             toast("success login", {
               style: {
@@ -113,6 +117,7 @@ function SignupOrLogin() {
                 color: "#fff",
               },
             });
+            setLoading(false);
             localStorage.setItem("auth-token", data.data.token);
 
             dispatch(loginUser(data.data.user));
@@ -198,7 +203,7 @@ function SignupOrLogin() {
           className="btn-login"
           onClick={() => (check === "Sign Up" ? signUp() : login())}
         >
-          Continue
+          {loading ? <PropagateLoader color="#fff" /> : "Continue"}
         </button>
         {check === "Sign Up" ? (
           <div className="check-login">

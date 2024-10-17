@@ -81,19 +81,23 @@
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
 }
 .required {
-  border :1px solid #ff4141 !important;
+  border: 1px solid #ff4141 !important;
 }
 
-@media(max-width:650px) {
+@media (max-width: 650px) {
   .signup-login .container-feild {
     width: auto;
   }
   .signup-login .container-feild .name {
     flex-direction: column;
   }
-  .signup-login .container-feild .name .input-feild  {
+  .signup-login .container-feild .name .input-feild {
     width: 100%;
   }
 }

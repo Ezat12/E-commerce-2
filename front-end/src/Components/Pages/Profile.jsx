@@ -6,6 +6,8 @@ import { ImageToBase64 } from "../ImageToBase64";
 import { loginUser } from "../rtk/slices/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { removeAllProduct } from "../rtk/slices/productsSlice";
+
 
 function Profile() {
   const dataUser = useSelector((state) => state.user);
@@ -79,7 +81,7 @@ function Profile() {
   const logout = () => {
     localStorage.removeItem("auth-token");
     dispatch(loginUser({}));
-    
+
     navigator("/");
     toast("logout success", {
       style: {
@@ -87,6 +89,7 @@ function Profile() {
         color: "#fff",
       },
     });
+    dispatch(removeAllProduct());
   };
 
   return (
