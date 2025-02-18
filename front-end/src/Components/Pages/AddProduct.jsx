@@ -41,7 +41,6 @@ function AddProduct() {
       formData.append(key, value);
     });
 
-    console.log(formData.get("image"));
     axios
       .post(`${process.env.REACT_APP_SERVER_URL}/add-product`, formData)
       .then((res) => console.log(res));

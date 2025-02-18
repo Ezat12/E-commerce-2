@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { removeAllProduct } from "../rtk/slices/productsSlice";
 
-
 function Profile() {
   const dataUser = useSelector((state) => state.user);
   const navigator = useNavigate();
@@ -28,7 +27,6 @@ function Profile() {
   // const [email, setFEmail] = useState(dataUser.firstName);
   // const [password, setPassword] = useState(dataUser.firstName);
   // const [image, setImage] = useState(dataUser.firstName);
-
 
   const changeImages = async (e) => {
     const dataImage = await ImageToBase64(e.target.files[0]);
@@ -83,7 +81,9 @@ function Profile() {
     localStorage.removeItem("auth-token");
     dispatch(loginUser({}));
 
-    navigator("/");
+    // navigator("/");
+    window.location.reload();
+    window.location.href = "/signuplogin";
     toast("logout success", {
       style: {
         background: "#28a745",

@@ -56,12 +56,10 @@ const Navbar = () => {
     // login();
   }
 
-  // window.location.reload("/")
 
   const productCard = useSelector((state) => state.products);
 
   const userDate = useSelector((state) => state.user);
-  console.log(userDate);
 
   const [menu, setMenu] = useState("");
 
