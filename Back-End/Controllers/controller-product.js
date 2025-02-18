@@ -1,3 +1,8 @@
+// const Products = require("../Models/modelProduts");
+// const User = require("../Models/modelUsers");
+// const cloudImg = require("../Middleware/cloudinary");
+// const jwt = require("jsonwebtoken");
+// const jsend = require("jsend");
 const Products = require("../Models/modelProduts");
 const User = require("../Models/modelUsers");
 const cloudImg = require("../Middleware/cloudinary");
@@ -5,32 +10,64 @@ const jwt = require("jsonwebtoken");
 const jsend = require("jsend");
 
 const addProduct_toProducts = async (req, res) => {
-  const { name, category, price, description } = req.body;
-  const { file } = req;
-  const resultImg = await cloudImg.uploads(file.path);
-  let theId = 1;
+  try {
+    const { name, category, price, description } = req.body;
+    const { file } = req;
 
-  const findProduts = await Products.find({});
+    if (!file) return res.status(400).json(jsend.error("No file uploaded"));
 
-  if (findProduts.length > 0) {
-    const endProduct = findProduts.slice(-1)[0];
+    const resultImg = await cloudImg.uploadBuffer(file.buffer);
 
-    theId = endProduct.id + 1;
+    let theId = 1;
+    const findProducts = await Products.find({});
+    if (findProducts.length > 0) {
+      theId = findProducts[findProducts.length - 1].id + 1;
+    }
+
+    const newProduct = new Products({
+      id: theId,
+      name,
+      category,
+      image: resultImg.secure_url,
+      price,
+      description,
+    });
+
+    await newProduct.save();
+
+    res.status(201).json(jsend.success("Product added successfully"));
+  } catch (error) {
+    res.status(500).json(jsend.error(error.message));
   }
-
-  const newProduct = new Products({
-    id: theId,
-    name,
-    category,
-    image: resultImg.url,
-    price,
-    description,
-  });
-
-  await newProduct.save();
-
-  res.status(201).json("Success");
 };
+
+// const addProduct_toProducts = async (req, res) => {
+//   const { name, category, price, description } = req.body;
+//   const { file } = req;
+//   const resultImg = await cloudImg.uploads(file.path);
+//   let theId = 1;
+
+//   const findProduts = await Products.find({});
+
+//   if (findProduts.length > 0) {
+//     const endProduct = findProduts.slice(-1)[0];
+
+//     theId = endProduct.id + 1;
+//   }
+
+//   const newProduct = new Products({
+//     id: theId,
+//     name,
+//     category,
+//     image: resultImg.url,
+//     price,
+//     description,
+//   });
+
+//   await newProduct.save();
+
+//   res.status(201).json("Success");
+// };
 
 const getProduct = async (req, res) => {
   const query = req.query;
