@@ -43,7 +43,7 @@ function AddProduct() {
 
     console.log(formData.get("image"));
     axios
-      .post("http://localhost:4000/add-product", formData)
+      .post(`${process.env.REACT_APP_SERVER_URL}/add-product`, formData)
       .then((res) => console.log(res));
   };
 

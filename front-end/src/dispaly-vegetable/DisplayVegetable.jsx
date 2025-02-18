@@ -7,7 +7,7 @@ function DisplayVegetable() {
   const [product, setProduct] = useState([]);
   const getProduct = async () => {
     axios
-      .get("http://localhost:4000/get-product")
+      .get(`${process.env.REACT_APP_SERVER_URL}/get-product`)
       .then((res) => setProduct(res.data.data));
   };
 

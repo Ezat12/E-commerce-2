@@ -15,7 +15,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const login = async () => {
-    await fetch("http://localhost:4000/login", {
+    await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",

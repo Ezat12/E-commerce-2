@@ -29,7 +29,6 @@ function Profile() {
   // const [password, setPassword] = useState(dataUser.firstName);
   // const [image, setImage] = useState(dataUser.firstName);
 
-  console.log(data);
 
   const changeImages = async (e) => {
     const dataImage = await ImageToBase64(e.target.files[0]);
@@ -55,17 +54,19 @@ function Profile() {
   };
 
   const update = async () => {
-    const fetchData = await fetch("http://localhost:4000/update", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const fetchData = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/update`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const setdata = await fetchData.json();
-    console.log(setdata);
     if (setdata.status === "success") {
       dispatch(loginUser(setdata.data.user));
       navigator("/");

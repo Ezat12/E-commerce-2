@@ -34,7 +34,7 @@ function Card() {
 
   const clickPlus = (pro) => {
     axios
-      .post("http://localhost:4000/add-products", {
+      .post(`${process.env.REACT_APP_SERVER_URL}/add-products`, {
         token: localStorage.getItem("auth-token"),
         product: pro,
       })
@@ -48,7 +48,7 @@ function Card() {
 
   const clickMinus = (pro) => {
     axios
-      .post("http://localhost:4000/delete-product", {
+      .post(`${process.env.REACT_APP_SERVER_URL}/delete-product`, {
         token: localStorage.getItem("auth-token"),
         product: pro,
       })

@@ -21,7 +21,7 @@ function Item(props) {
       navigator("/signuplogin");
     } else {
       axios
-        .post("http://localhost:4000/add-products", {
+        .post(`${process.env.REACT_APP_SERVER_URL}/add-products`, {
           token: localStorage.getItem("auth-token"),
           product: pro,
         })

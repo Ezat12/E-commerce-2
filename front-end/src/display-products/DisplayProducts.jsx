@@ -9,7 +9,7 @@ function DisplayProducts() {
   const [count, setCount] = useState(20);
   const getProduct = async () => {
     axios
-      .get(`http://localhost:4000/get-product?limit=${count}`)
+      .get(`${process.env.REACT_APP_SERVER_URL}/get-product?limit=${count}`)
       .then((res) => setProduct(res.data.data));
   };
 

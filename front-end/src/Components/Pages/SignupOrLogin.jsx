@@ -48,7 +48,7 @@ function SignupOrLogin() {
 
         setLoading(true);
         axios
-          .post("http://localhost:4000/signup", formData)
+          .post(`${process.env.REACT_APP_SERVER_URL}/signup`, formData)
           .then((res) => {
             const data = res.data;
             if (data.status === "success") {
@@ -89,7 +89,7 @@ function SignupOrLogin() {
 
     if (email !== "" && password !== "") {
       setLoading(true);
-      await fetch("http://localhost:4000/login", {
+      await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
         method: "POST",
         headers: {
           Accept: "application/json",
